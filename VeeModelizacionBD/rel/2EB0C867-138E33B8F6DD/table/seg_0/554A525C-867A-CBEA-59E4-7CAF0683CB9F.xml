@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="554A525C-867A-CBEA-59E4-7CAF0683CB9F" name="diario">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>9E5E7516-F817-A5DB-2B7C-244E19B327AC</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="52096C46-C610-0985-194D-19FCCD891569">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>65EA880D-5890-0E61-4BEB-A020D9B0B40C</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="19C934C9-577A-B679-ABE1-E841CE14A327">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>31146EC2-289A-AD24-9EAF-75ADC77863C1</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="text" id="51F44DAC-CBD1-A9BD-B141-7FB5A9758CE9">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>F46EFCEB-63E3-7C58-47DD-BF43F12097D9</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_id" id="EE0FAD5C-F57B-7E22-5930-B97C52EBF0DA">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>E5DB4977-B8C9-9AE8-122D-E31BFDB5CA40</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="468C693A-7B51-FB1D-B400-15E95BC2D63E" referredColumn="D5A0E406-E754-B06A-0B56-2470C0724CF1"/>
+</associations>
+</Column>
+<Column name="titulo" id="23B20376-E5B0-B64A-1D0D-AC71AA2EBD69">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>2A01088E-E79A-B4CF-4A16-5987862A5C21</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8DC55E58-2F88-BE29-BF1A-564BC71D77D3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7F35A907-A589-853B-333A-FA057A4B50BA" name="diario_PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>F826955B-8570-211C-1D37-4CCB721B51E1</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52096C46-C610-0985-194D-19FCCD891569"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1135E5A7-1D09-09D9-B65F-5218D7A542E0" name="diario_Usuario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>34F39AC5-466C-2A88-BFB8-E546AF966A8A</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE0FAD5C-F57B-7E22-5930-B97C52EBF0DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

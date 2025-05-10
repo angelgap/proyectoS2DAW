@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="218EE89A-9493-D4F6-97E1-E921F6EE2AA7" name="es_amigo">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Usuario_id" id="DD1B6AD8-ADF2-94CA-10B1-88AE32F0D3F3">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6884A4FC-FE7E-1A3B-7225-57013E0F8639" referredColumn="D5A0E406-E754-B06A-0B56-2470C0724CF1"/>
+</associations>
+</Column>
+<Column name="Usuario_id1" id="95DA43B2-418D-2405-B40F-B4A11AC4D6CC">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4033CACB-1462-787A-D82C-454E78E9CC26" referredColumn="D5A0E406-E754-B06A-0B56-2470C0724CF1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BACC8D31-59CC-309A-FBB4-59611744AEBF" name="es_amigo_PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD1B6AD8-ADF2-94CA-10B1-88AE32F0D3F3"/>
+<colUsage columnID="95DA43B2-418D-2405-B40F-B4A11AC4D6CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0A4551E8-52BE-B10C-C6AF-C29A7E6C41CC" name="es_amigo_Usuario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>41EB9808-AFA5-AF8B-55DE-3E27E9BCC6D2</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD1B6AD8-ADF2-94CA-10B1-88AE32F0D3F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3AC448BB-B210-5D2B-857B-634011824354" name="es_amigo_Usuario_FKv1">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>41EB9808-AFA5-AF8B-55DE-3E27E9BCC6D2</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95DA43B2-418D-2405-B40F-B4A11AC4D6CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

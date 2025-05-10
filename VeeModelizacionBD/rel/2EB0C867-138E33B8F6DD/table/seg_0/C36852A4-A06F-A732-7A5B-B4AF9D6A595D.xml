@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C36852A4-A06F-A732-7A5B-B4AF9D6A595D" name="imagen">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>7BCB6499-5A2D-B518-EE82-A69F01427A82</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="9B40E3AD-31F6-7B40-D28B-43355A87122B">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>10BD253C-632C-E148-31E8-77B36E495B37</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="url" id="A53D3DAF-C391-0E73-1862-58C80F446A20">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>33B65C87-2E30-B379-501E-0749EF011A16</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titulo" id="BFBA6BA2-4653-376F-8CF7-84BDC8979C55">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>D7E419CC-C177-C9B5-36AA-D6E9992B14B9</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8DC55E58-2F88-BE29-BF1A-564BC71D77D3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_id" id="D854E049-13E3-7872-19DE-04D8242835AE">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>F8A30DF4-9B4C-BBC4-1AC2-8BF1A5CAAC1D</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="04A0C45A-9C8F-3B9B-FDF7-05E871AB7A42" referredColumn="D5A0E406-E754-B06A-0B56-2470C0724CF1"/>
+</associations>
+</Column>
+<Column name="diario_id" id="81A31F07-5257-05DE-C8E8-8228428BC3D7">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>F3C71A20-523B-E6D8-4369-9F8056B1F670</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="30507ED3-CC0E-5ACB-CF37-05B3A0109ADF" referredColumn="52096C46-C610-0985-194D-19FCCD891569"/>
+</associations>
+</Column>
+<Column name="comentario_id" id="F37ADFAC-92A7-298A-A2EA-C7F0BBCECBAC">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>4C393F5B-8D30-4585-264E-0507555EE87F</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DC90DC95-605A-A9F5-72C3-19BFC414E4D4" referredColumn="D0C4368A-5D57-7402-24A9-CDF5B5720F40"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FFA103E9-2E26-96B5-D555-1F9BA3D596C5" name="imagen_PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>830B84E0-10DD-8D1E-2118-AC62807542E0</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B40E3AD-31F6-7B40-D28B-43355A87122B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08CEF39D-4343-782B-EFBE-34205C232D10" name="imagen_comentario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>CEF134AA-9445-BC81-40BC-345AC6BFDD50</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F37ADFAC-92A7-298A-A2EA-C7F0BBCECBAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="39CEC870-1D9A-D4AF-B340-95F2A7525C72" name="imagen_Usuario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>31D4D6CA-2B4B-8967-095B-59FB8139BB70</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D854E049-13E3-7872-19DE-04D8242835AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDB6C3A4-AF1E-E47C-D61A-9B90752E4811" name="imagen_diario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>50DE1035-FE0D-383D-C8F5-E092AEC94D93</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81A31F07-5257-05DE-C8E8-8228428BC3D7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

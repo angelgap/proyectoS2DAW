@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DC90DC95-605A-A9F5-72C3-19BFC414E4D4" containerWithKeyObject="C36852A4-A06F-A732-7A5B-B4AF9D6A595D" localFKIndex="08CEF39D-4343-782B-EFBE-34205C232D10" name="imagen_comentario_FK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:13:35 UTC</createdTime>
+<generatorID>CEF134AA-9445-BC81-40BC-345AC6BFDD50</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<referredTableLongName>comentario</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D1AE32A1-C684-30D4-9C97-5C26F4151D3E</referredTableID>
+<keyObject>AEF1D1AA-3B1E-D4CB-C568-E70C2ECA0C3F</keyObject>
+<referredKeyID>AEF1D1AA-3B1E-D4CB-C568-E70C2ECA0C3F</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

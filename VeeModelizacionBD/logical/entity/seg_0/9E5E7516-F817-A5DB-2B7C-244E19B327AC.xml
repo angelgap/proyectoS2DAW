@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9E5E7516-F817-A5DB-2B7C-244E19B327AC" name="diario">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 19:52:04 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="65EA880D-5890-0E61-4BEB-A020D9B0B40C">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 19:52:20 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="31146EC2-289A-AD24-9EAF-75ADC77863C1">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 19:52:29 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="text" id="F46EFCEB-63E3-7C58-47DD-BF43F12097D9">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 19:53:20 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="E5DB4977-B8C9-9AE8-122D-E31BFDB5CA40">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 20:06:57 UTC</createdTime>
+<generatorID>34F39AC5-466C-2A88-BFB8-E546AF966A8A</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<referedAttribute>F97926BC-3AE6-0A03-2C9C-C32265EF1D59</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulo" id="2A01088E-E79A-B4CF-4A16-5987862A5C21">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:27:58 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8DC55E58-2F88-BE29-BF1A-564BC71D77D3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F826955B-8570-211C-1D37-4CCB721B51E1" name="diario PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-07 19:52:27 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>65EA880D-5890-0E61-4BEB-A020D9B0B40C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

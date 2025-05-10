@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7BCB6499-5A2D-B518-EE82-A69F01427A82" name="imagen">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:28:46 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="10BD253C-632C-E148-31E8-77B36E495B37">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:28:54 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="url" id="33B65C87-2E30-B379-501E-0749EF011A16">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:29:04 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulo" id="D7E419CC-C177-C9B5-36AA-D6E9992B14B9">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:29:24 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8DC55E58-2F88-BE29-BF1A-564BC71D77D3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="F8A30DF4-9B4C-BBC4-1AC2-8BF1A5CAAC1D">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:30:09 UTC</createdTime>
+<generatorID>31D4D6CA-2B4B-8967-095B-59FB8139BB70</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<referedAttribute>F97926BC-3AE6-0A03-2C9C-C32265EF1D59</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="F3C71A20-523B-E6D8-4369-9F8056B1F670">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:50:34 UTC</createdTime>
+<generatorID>50DE1035-FE0D-383D-C8F5-E092AEC94D93</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>65EA880D-5890-0E61-4BEB-A020D9B0B40C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id3" id="4C393F5B-8D30-4585-264E-0507555EE87F">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:57:27 UTC</createdTime>
+<generatorID>CEF134AA-9445-BC81-40BC-345AC6BFDD50</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>C7C326CA-CBAD-F08C-C92F-642C2564F89D</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="830B84E0-10DD-8D1E-2118-AC62807542E0" name="imagen PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:29:00 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>10BD253C-632C-E148-31E8-77B36E495B37</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

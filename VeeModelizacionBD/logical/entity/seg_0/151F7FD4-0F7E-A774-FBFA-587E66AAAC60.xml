@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="151F7FD4-0F7E-A774-FBFA-587E66AAAC60" name="comentario">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:56:24 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="C7C326CA-CBAD-F08C-C92F-642C2564F89D">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:56:41 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="texto" id="2A7CFF3E-701F-AA18-9B7C-742F467519B0">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:56:48 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="FDC0E2E8-9296-D9C2-3517-AFF83AEBF57C">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:57:16 UTC</createdTime>
+<generatorID>CEF134AA-9445-BC81-40BC-345AC6BFDD50</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>10BD253C-632C-E148-31E8-77B36E495B37</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="08244560-A4B0-7E27-A526-DC89A003AAF0">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:05:01 UTC</createdTime>
+<generatorID>32FBE58B-436B-DD1B-F3FE-B3858A62BB68</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<referedAttribute>65EA880D-5890-0E61-4BEB-A020D9B0B40C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id3" id="ECAA9BE6-BF8E-7DD0-451A-646000C4FD0C">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:05:59 UTC</createdTime>
+<generatorID>AC78B481-44A5-92A0-3F42-EFF31FA6F1BF</generatorID>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<referedAttribute>F97926BC-3AE6-0A03-2C9C-C32265EF1D59</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>492B7B30-8E32-FCF8-7B9C-98E2C389054E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="04848603-6FFF-6251-351B-35B9C6734894" name="comentario PK">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 17:56:46 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C7C326CA-CBAD-F08C-C92F-642C2564F89D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

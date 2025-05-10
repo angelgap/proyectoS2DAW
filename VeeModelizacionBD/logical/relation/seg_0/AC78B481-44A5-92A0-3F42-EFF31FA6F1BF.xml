@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="pertenecev4" directorySegmentName="seg_0" id="AC78B481-44A5-92A0-3F42-EFF31FA6F1BF">
+<createdBy>longo</createdBy>
+<createdTime>2025-05-09 18:05:59 UTC</createdTime>
+<ownerDesignName>Vee</ownerDesignName>
+<engineerTo>
+<item key="2EB0C867-C8D1-EA90-DC2E-138E33B8F6DD" value="true"/>
+</engineerTo>
+<sourcePk>7497645C-FFF5-F630-BB65-87E995E5D133</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>51A7B97E-8FA2-6475-9261-1AC8FA46E707</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>151F7FD4-0F7E-A774-FBFA-587E66AAAC60</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
