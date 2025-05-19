@@ -1,6 +1,6 @@
 package com.S2DAW.Proyecto.Vee.Vee.dto;
 
-import com.S2DAW.Proyecto.Vee.Vee.Imagen;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Imagen;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.Imagen}
+ * DTO for {@link Imagen}
  */
 public class ImagenDto implements Serializable {
     private  Long id;
@@ -35,6 +35,9 @@ public class ImagenDto implements Serializable {
         this.usuarioId = imagen.getUsuario().getId();
         this.diarioId = imagen.getDiario().getId();
     }
+
+
+
     public Long getId() {
         return id;
     }
@@ -95,5 +98,12 @@ public class ImagenDto implements Serializable {
             imagenesDtoSet.add(imagenDto);
         }
         return imagenesDtoSet;
+    }
+    public static ImagenDto convertirAImagenDto(Imagen imagen) {
+
+        ImagenDto imagenDto = new ImagenDto(imagen);
+
+
+        return imagenDto;
     }
 }

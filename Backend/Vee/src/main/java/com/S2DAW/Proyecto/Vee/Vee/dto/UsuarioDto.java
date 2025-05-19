@@ -1,13 +1,13 @@
 package com.S2DAW.Proyecto.Vee.Vee.dto;
 
-import com.S2DAW.Proyecto.Vee.Vee.Usuario;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Usuario;
 
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.Usuario}
+ * DTO for {@link Usuario}
  */
 public class UsuarioDto implements Serializable {
     private final Long id;

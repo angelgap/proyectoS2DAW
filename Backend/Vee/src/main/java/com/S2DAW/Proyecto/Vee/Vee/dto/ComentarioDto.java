@@ -1,6 +1,6 @@
 package com.S2DAW.Proyecto.Vee.Vee.dto;
 
-import com.S2DAW.Proyecto.Vee.Vee.Comentario;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Comentario;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,26 +8,30 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.Comentario}
+ * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.entity.Comentario}
  */
 public class ComentarioDto implements Serializable {
-    private  Long id;
-    private  String texto;
-    private  ImagenDto imagen;
+    private final Long id;
+    private final String texto;
+    private final ImagenDto imagen;
+    private final Long diarioId;
+    private final Long usuarioId;
 
-    public ComentarioDto(Long id, String texto, ImagenDto imagen) {
+    public ComentarioDto(Long id, String texto, ImagenDto imagen, Long diarioId, Long usuarioId) {
         this.id = id;
         this.texto = texto;
         this.imagen = imagen;
+        this.diarioId = diarioId;
+        this.usuarioId = usuarioId;
     }
 
-    public ComentarioDto(Comentario comentario) {
-        this.id = comentario.getId();
-        this.texto = comentario.getTexto();
-        this.imagen = new ImagenDto(comentario.getImagen());
+    public ComentarioDto(Comentario c) {
+        this.id =c.getId();
+        this.texto = c.getTexto();
+        this.imagen = new ImagenDto(c.getImagen());
+        this.diarioId = c.getDiario().getId();
+        this.usuarioId = c.getUsuario().getId();
     }
-
-    public ComentarioDto() {}
 
     public Long getId() {
         return id;
@@ -41,6 +45,14 @@ public class ComentarioDto implements Serializable {
         return imagen;
     }
 
+    public Long getDiarioId() {
+        return diarioId;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,21 +60,16 @@ public class ComentarioDto implements Serializable {
         ComentarioDto entity = (ComentarioDto) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.texto, entity.texto) &&
-                Objects.equals(this.imagen, entity.imagen);
+                Objects.equals(this.imagen, entity.imagen) &&
+                Objects.equals(this.diarioId, entity.diarioId) &&
+                Objects.equals(this.usuarioId, entity.usuarioId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, texto, imagen);
+        return Objects.hash(id, texto, imagen, diarioId, usuarioId);
     }
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "texto = " + texto + ", " +
-                "imagen = " + imagen + ")";
-    }
     public static Set<ComentarioDto> convertirAComentarioDto(Set<Comentario> comentarios) {
         Set<ComentarioDto> comentariosDtoSet = new HashSet<>();
 
@@ -73,5 +80,14 @@ public class ComentarioDto implements Serializable {
         }
 
         return comentariosDtoSet;
+    }
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "texto = " + texto + ", " +
+                "imagen = " + imagen + ", " +
+                "diarioId = " + diarioId + ", " +
+                "usuarioId = " + usuarioId + ")";
     }
 }

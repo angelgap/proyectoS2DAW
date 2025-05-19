@@ -1,6 +1,7 @@
 package com.S2DAW.Proyecto.Vee.Vee.dto;
 
-import com.S2DAW.Proyecto.Vee.Vee.Diario;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Comentario;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Diario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -9,34 +10,36 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.Diario}
+ * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.entity.Diario}
  */
 public class DiarioDto implements Serializable {
     private  Long id;
     private  LocalDate fecha;
     private  String text;
+    private  Long usuarioId;
     private  String titulo;
     private  Set<ComentarioDto> comentarios;
     private  Set<ImagenDto> imagens;
 
-    public DiarioDto(Long id, LocalDate fecha, String text, String titulo, Set<ComentarioDto> comentarios, Set<ImagenDto> imagens) {
+    public DiarioDto(Long id, LocalDate fecha, String text, Long usuarioId, String titulo, Set<ComentarioDto> comentarios, Set<ImagenDto> imagens) {
         this.id = id;
         this.fecha = fecha;
         this.text = text;
+        this.usuarioId = usuarioId;
         this.titulo = titulo;
         this.comentarios = comentarios;
         this.imagens = imagens;
     }
-
-  public DiarioDto(Diario diario) {
-        this.id = diario.getId();
-        this.fecha = diario.getFecha();
-        this.text = diario.getText();
-        this.titulo = diario.getTitulo();
-        this.comentarios = ComentarioDto.convertirAComentarioDto(diario.getComentarios());
-        this.imagens = ImagenDto.convertirAImagenDto(diario.getImagens());
-  }
-
+    public DiarioDto(Diario d){
+        this.id = d.getId();
+        this.fecha = d.getFecha();
+        this.text = d.getText();
+        this.usuarioId = d.getUsuario().getId();
+        this.titulo = d.getTitulo();
+        this.comentarios = ComentarioDto.convertirAComentarioDto(d.getComentarios());
+        this.imagens = ImagenDto.convertirAImagenDto(d.getImagens());
+    }
+    public DiarioDto(){}
     public Long getId() {
         return id;
     }
@@ -47,6 +50,10 @@ public class DiarioDto implements Serializable {
 
     public String getText() {
         return text;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
     public String getTitulo() {
@@ -69,6 +76,7 @@ public class DiarioDto implements Serializable {
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.fecha, entity.fecha) &&
                 Objects.equals(this.text, entity.text) &&
+                Objects.equals(this.usuarioId, entity.usuarioId) &&
                 Objects.equals(this.titulo, entity.titulo) &&
                 Objects.equals(this.comentarios, entity.comentarios) &&
                 Objects.equals(this.imagens, entity.imagens);
@@ -76,25 +84,29 @@ public class DiarioDto implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fecha, text, titulo, comentarios, imagens);
+        return Objects.hash(id, fecha, text, usuarioId, titulo, comentarios, imagens);
     }
 
+    public static Set<DiarioDto> convertirADiarioDto(Set<Diario> diarios) {
+        Set<DiarioDto> diariosDtoSet = new HashSet<>();
+
+
+        for (Diario diario : diarios) {
+            DiarioDto diarioDto = new DiarioDto(diario);
+            diariosDtoSet.add(diarioDto);
+        }
+
+        return diariosDtoSet;
+    }
     @Override
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
                 "fecha = " + fecha + ", " +
                 "text = " + text + ", " +
+                "usuarioId = " + usuarioId + ", " +
                 "titulo = " + titulo + ", " +
                 "comentarios = " + comentarios + ", " +
                 "imagens = " + imagens + ")";
-    }
-    public static Set<DiarioDto> convertirADiarioDto(Set<Diario> diarios) {
-        Set<DiarioDto> diariosDtoSet = new HashSet<>();
-        for ( Diario diario : diarios) {
-            DiarioDto diarioDto = new DiarioDto(diario);
-            diariosDtoSet.add(diarioDto);
-        }
-        return diariosDtoSet;
     }
 }

@@ -1,4 +1,4 @@
-package com.S2DAW.Proyecto.Vee.Vee;
+package com.S2DAW.Proyecto.Vee.Vee.entity;
 
 import jakarta.persistence.*;
 
