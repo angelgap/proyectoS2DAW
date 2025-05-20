@@ -8,8 +8,6 @@ public interface DiarioService {
 
     List<DiarioDto> findAll();
 
-    DiarioDto findById(Long id);
-
     void save(DiarioDto diarioDto);
 
     void save(DiarioDto diarioDto, Long id);
