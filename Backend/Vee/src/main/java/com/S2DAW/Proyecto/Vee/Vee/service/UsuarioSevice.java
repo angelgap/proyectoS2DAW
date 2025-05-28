@@ -10,6 +10,8 @@ public interface UsuarioSevice {
 
     UsuarioDto findById(Long id);
 
+    List<UsuarioDto> findByUsername(String username);
+
     void save(UsuarioDto usuarioDto);
 
     void save(UsuarioDto usuarioDto, Long id);

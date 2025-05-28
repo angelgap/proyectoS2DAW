@@ -53,11 +53,12 @@ public class DiarioServiceImpl implements DiarioService {
         Diario diario = new Diario();
         diario.setId(id);
         diario.setText(diarioDto.getText());
+        diarioRepository.save(diario);
 
     }
 
     @Override
     public void delete(Long id) {
-
+    diarioRepository.deleteById(id);
     }
 }

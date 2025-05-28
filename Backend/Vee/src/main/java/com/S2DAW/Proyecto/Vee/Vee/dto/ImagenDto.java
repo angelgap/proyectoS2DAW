@@ -31,7 +31,7 @@ public class ImagenDto implements Serializable {
     public ImagenDto(Imagen imagen) {
         this.id = imagen.getId();
         this.url = imagen.getUrl();
-        this.comentarioId = imagen.getComentario().getId();
+        this.comentarioId = (imagen.getComentario() != null) ? imagen.getComentario().getId() : null;
         this.usuarioId = imagen.getUsuario().getId();
         this.diarioId = imagen.getDiario().getId();
     }

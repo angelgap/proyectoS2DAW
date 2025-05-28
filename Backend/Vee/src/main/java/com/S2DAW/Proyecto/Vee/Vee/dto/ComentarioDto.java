@@ -28,7 +28,7 @@ public class ComentarioDto implements Serializable {
     public ComentarioDto(Comentario c) {
         this.id =c.getId();
         this.texto = c.getTexto();
-        this.imagen = new ImagenDto(c.getImagen());
+        this.imagen = (c.getImagen() != null) ? new ImagenDto(c.getImagen()) : null;
         this.diarioId = c.getDiario().getId();
         this.usuarioId = c.getUsuario().getId();
     }
