@@ -1,18 +1,18 @@
 package com.S2DAW.Proyecto.Vee.Vee.rest;
 
-import com.S2DAW.Proyecto.Vee.Vee.dto.ComentarioDto;
-import com.S2DAW.Proyecto.Vee.Vee.dto.DiarioDto;
-import com.S2DAW.Proyecto.Vee.Vee.dto.ImagenDto;
-import com.S2DAW.Proyecto.Vee.Vee.dto.UsuarioDto;
+import com.S2DAW.Proyecto.Vee.Vee.dto.*;
+import com.S2DAW.Proyecto.Vee.Vee.entity.Usuario;
 import com.S2DAW.Proyecto.Vee.Vee.service.ComentarioService;
 import com.S2DAW.Proyecto.Vee.Vee.service.DiarioService;
 import com.S2DAW.Proyecto.Vee.Vee.service.ImagenService;
 import com.S2DAW.Proyecto.Vee.Vee.service.UsuarioSevice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class VeeController {
 
@@ -64,6 +64,17 @@ public class VeeController {
 
     @PostMapping("/imagenes")
     public void saveImagen(@RequestBody ImagenDto imagenDto){imagenService.save(imagenDto);}
+
+    @PostMapping("/login")
+    public ResponseEntity<UsuarioDto> login(@RequestBody LoginRequest loginRequest) {
+        UsuarioDto usuario = usuarioSevice.findByNombreAndPass(loginRequest.getNombre(), loginRequest.getPass());
+
+        if (usuario == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        return ResponseEntity.ok(usuario);
+    }
 
     @PutMapping("/usuarios/{id}")
     public void updateUsuario(@PathVariable Long id , @RequestBody UsuarioDto usuarioDto){

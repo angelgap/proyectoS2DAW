@@ -17,4 +17,6 @@ public interface UsuarioSevice {
     void save(UsuarioDto usuarioDto, Long id);
 
     void delete(Long id);
+
+    UsuarioDto findByNombreAndPass(String nombre, String pass);
 }

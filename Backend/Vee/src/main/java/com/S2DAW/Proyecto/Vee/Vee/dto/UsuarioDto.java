@@ -10,11 +10,11 @@ import java.util.Set;
  * DTO for {@link Usuario}
  */
 public class UsuarioDto implements Serializable {
-    private final Long id;
-    private final String nombre;
-    private final String email;
-    private final String pass;
-    private final Set<DiarioDto> diarios;
+    private  Long id;
+    private  String nombre;
+    private  String email;
+    private  String pass;
+    private  Set<DiarioDto> diarios;
 
     public UsuarioDto(Long id, String nombre, String email, String pass, Set<DiarioDto> diarios) {
         this.id = id;
@@ -29,6 +29,8 @@ public class UsuarioDto implements Serializable {
         this.email = usuario.getEmail();
         this.pass = usuario.getPass();
         this.diarios = DiarioDto.convertirADiarioDto(usuario.getDiarios());
+    }
+    public UsuarioDto() {
     }
     public Long getId() {
         return id;

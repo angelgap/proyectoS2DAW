@@ -77,4 +77,11 @@ public class UsuarioServiceImpl implements UsuarioSevice {
     public void delete(Long id) {
         usuarioRepository.deleteById(id);
     }
+
+    public UsuarioDto findByNombreAndPass(String nombre, String pass) {
+        return usuarioRepository.findByNombreAndPass(nombre, pass)
+                .map(UsuarioDto::new)
+                .orElse(null);
+    }
+
 }

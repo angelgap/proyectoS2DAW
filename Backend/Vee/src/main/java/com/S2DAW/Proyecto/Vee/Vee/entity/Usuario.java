@@ -9,6 +9,7 @@ import java.util.Set;
 @Table(name = "USUARIO")
 public class Usuario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Permite que la BD lo genere
     @Column(name = "ID", nullable = false)
     private Long id;
 
