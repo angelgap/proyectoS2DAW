@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: vee-api
+    env: java
+    repo: https://github.com/angelgap/proyectoS2DAW
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/Vee-0.0.1-SNAPSHOT.jar
+    buildFilter:
+      paths:
+        - Backend/Vee/**
+    rootDir: Backend/Vee
