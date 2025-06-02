@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class VeeController {
 
@@ -32,7 +32,7 @@ public class VeeController {
     @GetMapping("/usuarios")
     public List<UsuarioDto> usuarios(){return usuarioSevice.findAll();}
 
-    @GetMapping("/usuarios/{id}")
+    @GetMapping("/usuarios/id/{id}")
     public UsuarioDto usuario(@PathVariable Long id) {
         UsuarioDto usuario = usuarioSevice.findById(id);
         if (usuario == null) {
@@ -40,7 +40,7 @@ public class VeeController {
         }
         return usuario;
     }
-    @GetMapping("/usuarios/{username}")
+    @GetMapping("/usuarios/nombre/{username}")
     public List<UsuarioDto> usuarioByUsername(@PathVariable String username) {
         return usuarioSevice.findByUsername(username);
     }

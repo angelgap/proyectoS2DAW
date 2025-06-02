@@ -11,9 +11,13 @@ import java.util.Set;
 @Entity
 @Table(name = "DIARIO")
 public class Diario {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "diario_seq_gen")
+    @SequenceGenerator(name = "diario_seq_gen", sequenceName = "SEQ_DIARIO", allocationSize = 1)
     @Column(name = "ID", nullable = false)
     private Long id;
+
 
     @Column(name = "FECHA", nullable = false)
     private LocalDate fecha;

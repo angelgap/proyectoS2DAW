@@ -22,7 +22,6 @@ public class DiarioDto implements Serializable {
     private  Set<ImagenDto> imagens;
 
     public DiarioDto(Long id, LocalDate fecha, String text, Long usuarioId, String titulo, Set<ComentarioDto> comentarios, Set<ImagenDto> imagens) {
-        this.id = id;
         this.fecha = fecha;
         this.text = text;
         this.usuarioId = usuarioId;

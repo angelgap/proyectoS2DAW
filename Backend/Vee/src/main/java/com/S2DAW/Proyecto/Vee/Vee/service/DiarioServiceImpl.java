@@ -40,13 +40,15 @@ public class DiarioServiceImpl implements DiarioService {
 
     @Override
     public void save(DiarioDto diarioDto) {
-    Diario diario = new Diario();
-    diario.setId(diarioDto.getId());
-    diario.setFecha(diarioDto.getFecha());
-    diario.setText(diarioDto.getText());
-    diario.setUsuario(usuarioRepository.getById(diarioDto.getUsuarioId()));
-    diarioRepository.save(diario);
+        Diario diario = new Diario();
+        
+        diario.setFecha(diarioDto.getFecha());
+        diario.setText(diarioDto.getText());
+        diario.setTitulo(diarioDto.getTitulo()); // <- Faltaba esto también
+        diario.setUsuario(usuarioRepository.getById(diarioDto.getUsuarioId()));
+        diarioRepository.save(diario);
     }
+
 
     @Override
     public void save(DiarioDto diarioDto, Long id) {

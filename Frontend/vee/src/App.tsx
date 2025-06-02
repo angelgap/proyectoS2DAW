@@ -1,16 +1,25 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Welcome from "./pages/Welcome";
-import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Bienvenida from './pages/Bienvenida';
+import Home from './pages/Home';
+import { useUsuario, ProveedorUsuario } from './context/UsuarioContext';
 
-function App() {
+function AppRoutes() {
+  const { usuario } = useUsuario();
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Bienvenida />} />
+      <Route path="/home" element={usuario ? <Home /> : <Navigate to="/" />} />
+    </Routes>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ProveedorUsuario>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ProveedorUsuario>
+  );
+}
