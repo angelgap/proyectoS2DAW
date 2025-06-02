@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: vee-api
-    runtime: docker
-    repo: https://github.com/angelgap/proyectoS2DAW
-    rootDir: Backend/Vee
