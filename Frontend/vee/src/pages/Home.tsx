@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useUsuario } from "../context/UsuarioContext";
@@ -9,7 +8,6 @@ export default function Home() {
   const { usuario } = useUsuario();
   const [diarios, setDiarios] = useState<Diario[]>([]);
   const [cargando, setCargando] = useState(true);
-  const [mostrarEditor, setMostrarEditor] = useState(false);
   const [diarioEnEdicion, setDiarioEnEdicion] = useState<Diario | undefined>();
 
   useEffect(() => {
@@ -29,14 +27,23 @@ export default function Home() {
     }
   };
 
+  const handleEliminarDiario = async (id: number) => {
+    try {
+      await axios.delete(`http://localhost:8080/diarios/${id}`);
+      setDiarios(diarios.filter((d) => d.id !== id));
+    } catch (error) {
+      console.error("Error al eliminar diario:", error);
+    }
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen p-4 md:p-8">
       <h1 className="text-center text-2xl font-bold text-gray-800 mb-6">
         Bienvenido, {usuario?.nombre}
       </h1>
 
-      {/* Editor fijo en escritorio */}
-      <div className="hidden md:block mb-8">
+      {/* Editor siempre visible */}
+      <div className="mb-8">
         <EditorDiario
           diario={diarioEnEdicion}
           onSave={() => {
@@ -78,7 +85,6 @@ export default function Home() {
                     ))}
                   </div>
                 )}
-                {/* Comentarios */}
                 {diario.comentarios && diario.comentarios.length > 0 && (
                   <div className="mt-4 text-sm text-gray-700">
                     <p className="font-semibold mb-1">Comentarios:</p>
@@ -98,49 +104,25 @@ export default function Home() {
                 )}
               </div>
 
-              <div className="mt-4 text-right">
+              <div className="mt-4 flex justify-end gap-2">
+                {new Date(diario.fecha).toISOString().split("T")[0] ===
+                  new Date().toISOString().split("T")[0] && (
+                  <button
+                    onClick={() => setDiarioEnEdicion(diario)}
+                    className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded"
+                  >
+                    Editar
+                  </button>
+                )}
                 <button
-                  onClick={() => {
-                    setDiarioEnEdicion(diario);
-                    setMostrarEditor(true);
-                  }}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded"
+                  onClick={() => handleEliminarDiario(diario.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded"
                 >
-                  Editar
+                  Eliminar
                 </button>
               </div>
             </div>
           ))}
-        </div>
-      )}
-
-      {/* Botón flotante en móvil */}
-      <div className="md:hidden fixed bottom-4 right-4 z-50">
-        <button
-          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold w-12 h-12 rounded-full text-2xl shadow"
-          onClick={() => {
-            setDiarioEnEdicion(undefined);
-            setMostrarEditor(true);
-          }}
-        >
-          +
-        </button>
-      </div>
-
-      {/* Modal del editor para móvil */}
-      {mostrarEditor && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4 md:hidden">
-          <div className="bg-white w-full max-w-lg p-4 rounded-xl">
-            <EditorDiario
-              diario={diarioEnEdicion}
-              onClose={() => setMostrarEditor(false)}
-              onSave={() => {
-                setMostrarEditor(false);
-                setDiarioEnEdicion(undefined);
-                cargarDiarios();
-              }}
-            />
-          </div>
         </div>
       )}
     </div>

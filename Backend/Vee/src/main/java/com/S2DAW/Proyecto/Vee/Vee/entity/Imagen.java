@@ -32,6 +32,16 @@ public class Imagen {
     @JoinColumn(name = "COMENTARIO_ID")
     private Comentario comentario;
 
+    public Imagen(Long id, String url, String titulo) {
+        this.id = id;
+        this.url = url;
+        this.titulo = titulo;
+    }
+
+    public Imagen() {
+
+    }
+
     public Long getId() {
         return id;
     }

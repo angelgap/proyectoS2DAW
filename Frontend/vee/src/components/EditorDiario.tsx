@@ -1,118 +1,85 @@
-// EditorDiario.tsx
+// EditorQuillSimple.tsx
 import React, { useEffect, useRef, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Diario } from "../types/Diario";
 import axios from "axios";
 import { useUsuario } from "../context/UsuarioContext";
+import { Diario } from "../types/Diario";
 
 interface Props {
   diario?: Diario;
-  onClose?: () => void;
   onSave: () => void;
+  onClose?: () => void;
 }
 
-export default function EditorDiario({ diario, onClose, onSave }: Props) {
+export default function EditorDiario({ diario, onSave, onClose }: Props) {
   const { usuario } = useUsuario();
   const [titulo, setTitulo] = useState("");
-  const [texto, setTexto] = useState("");
+  const [contenido, setContenido] = useState("");
+  const [fecha, setFecha] = useState<string | null>(null);
+  const [imagenes, setImagenes] = useState<string[]>([]); // <-- guardar las imágenes del diario
   const quillRef = useRef<ReactQuill | null>(null);
 
   useEffect(() => {
     setTitulo(diario?.titulo || "");
-    setTexto(diario?.text || "");
+    setContenido(diario?.text || "");
+    setFecha(diario?.fecha || "");
+    //setImagenes(diario?.imagenes.map(img => img.url) || []); // <-- cargar las imágenes del diario
+    // <-- guardar la fecha del diario
+
   }, [diario?.id]);
 
-  const handleSubmit = async () => {
+  const handleGuardar = async () => {
     if (!usuario) return;
-    const nuevoDiario = {
+    const datos = {
       id: diario?.id,
       titulo,
-      text: texto,
-      fecha: new Date().toISOString().split("T")[0],
+      text: contenido,
+      fecha: fecha || new Date().toISOString().split("T")[0],
+      //imagenes, // <-- enviar las imágenes del diario
       usuarioId: usuario.id,
     };
     try {
       if (diario) {
-        await axios.put(`http://localhost:8080/diarios/${diario.id}`, nuevoDiario);
+        await axios.put(`http://localhost:8080/diarios/${diario.id}`, datos);
       } else {
-        await axios.post("http://localhost:8080/diarios", nuevoDiario);
+        await axios.post("http://localhost:8080/diarios", datos);
       }
-      onSave();
       setTitulo("");
-      setTexto("");
+      setContenido("");
+      setImagenes([]); // <-- limpiar las imágenes al guardar
+      onSave();
     } catch (error) {
-      console.error("Error al guardar diario:", error);
+      console.error("Error guardando diario:", error);
     }
   };
 
-  const handleImageUpload = async () => {
-    const input = document.createElement("input");
-    input.setAttribute("type", "file");
-    input.setAttribute("accept", "image/*");
-    input.click();
-
-    input.onchange = async () => {
-      const file = input.files?.[0];
-      if (!file || !usuario) return;
-
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("usuarioId", usuario.id.toString());
-      if (diario?.id) formData.append("diarioId", diario.id.toString());
-
-      try {
-        const res = await axios.post("http://localhost:8080/imagenes/upload", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-        const imageUrl = res.data.url;
-        const editor = quillRef.current?.getEditor();
-        const range = editor?.getSelection();
-        if (range) {
-          editor?.insertEmbed(range.index, "image", imageUrl);
-        }
-      } catch (error) {
-        console.error("Error al subir imagen:", error);
-      }
-    };
-  };
-
   const modules = {
-    toolbar: {
-      container: [
-        [{ header: [1, 2, false] }],
-        ["bold", "italic", "underline"],
-        ["link", "image"],
-        [{ list: "ordered" }, { list: "bullet" }],
-      ],
-      handlers: {
-        image: handleImageUpload,
-      },
-    },
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ["bold", "italic", "underline"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+    ],
   };
 
   return (
-    <div className="bg-white rounded-xl shadow p-4 w-full">
+    <div className="bg-white shadow rounded-xl p-4 w-full">
       <input
         type="text"
         value={titulo}
         onChange={(e) => setTitulo(e.target.value)}
         placeholder="Título"
-        className="w-full border rounded px-3 py-2 mb-4"
+        className="w-full mb-4 border px-3 py-2 rounded"
       />
-      <div className="quill-container">
-        <ReactQuill
-          key={diario?.id || "nuevo"}
-          ref={(el) => {
-            quillRef.current = el;
-          }}
-          value={texto}
-          onChange={setTexto}
-          modules={modules}
-          theme="snow"
-          className="mb-4"
-        />
-      </div>
+      <ReactQuill
+        ref={quillRef}
+        value={contenido}
+        onChange={setContenido}
+        modules={modules}
+        theme="snow"
+        className="mb-4"
+      />
       <div className="flex justify-end gap-2">
         {onClose && (
           <button
@@ -123,10 +90,10 @@ export default function EditorDiario({ diario, onClose, onSave }: Props) {
           </button>
         )}
         <button
-          onClick={handleSubmit}
-          className="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+          onClick={handleGuardar}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-          {diario ? "Guardar Cambios" : "Crear Diario"}
+          {diario ? "Guardar cambios" : "Crear diario"}
         </button>
       </div>
     </div>
