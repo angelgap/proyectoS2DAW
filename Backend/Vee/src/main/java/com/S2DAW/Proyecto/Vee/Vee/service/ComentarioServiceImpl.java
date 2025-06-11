@@ -35,7 +35,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     public List<ComentarioDto> findAll() {
         List<Comentario> comentarios = comentariosRepository.findAll();
 
-        List<ComentarioDto> listadoDTO = comentarios.stream().map(comentario -> new ComentarioDto(comentario.getId(), comentario.getTexto(), convertirAImagenDto(comentario.getImagen()), comentario.getDiario().getId(), comentario.getUsuario().getId())).toList();
+        List<ComentarioDto> listadoDTO = comentarios.stream().map(comentario -> new ComentarioDto(comentario.getId(), comentario.getTexto(), convertirAImagenDto(comentario.getImagen()), comentario.getDiario().getId(), comentario.getUsuario().getId(),comentario.getUsuario().getNombre())).toList();
 
         return listadoDTO;
     }
@@ -43,10 +43,12 @@ public class ComentarioServiceImpl implements ComentarioService {
     @Override
     public void save(ComentarioDto comentarioDto) {
         Comentario comentario = new Comentario();
-        comentario.setId(comentarioDto.getId());
         comentario.setTexto(comentarioDto.getTexto());
         comentario.setUsuario(usuarioRepository.getById(comentarioDto.getUsuarioId()));
-        comentario.setImagen(imagenRepository.getById(comentarioDto.getImagen().getId()));
+        if (comentarioDto.getImagen() != null) {
+            Long imagenId = comentarioDto.getImagen().getId();
+        }
+
         comentario.setDiario(diarioRepository.getById(comentarioDto.getDiarioId()));
         comentariosRepository.save(comentario);
 

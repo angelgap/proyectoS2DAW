@@ -1,15 +1,19 @@
 package com.S2DAW.Proyecto.Vee.Vee.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "COMENTARIO")
 public class Comentario {
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Hibernate esperará que lo haga Oracle
     @Column(name = "ID", nullable = false)
     private Long id;
+
 
     @Column(name = "TEXTO", length = 4000)
     private String texto;

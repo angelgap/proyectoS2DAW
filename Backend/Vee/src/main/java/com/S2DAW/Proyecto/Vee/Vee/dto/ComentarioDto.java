@@ -11,18 +11,21 @@ import java.util.Set;
  * DTO for {@link com.S2DAW.Proyecto.Vee.Vee.entity.Comentario}
  */
 public class ComentarioDto implements Serializable {
-    private final Long id;
-    private final String texto;
-    private final ImagenDto imagen;
-    private final Long diarioId;
-    private final Long usuarioId;
+    private  Long id;
+    private  String texto;
+    private  ImagenDto imagen;
+    private  Long diarioId;
+    private  Long usuarioId;
+    private  String usuarioNombre;
 
-    public ComentarioDto(Long id, String texto, ImagenDto imagen, Long diarioId, Long usuarioId) {
+
+    public ComentarioDto(Long id, String texto, ImagenDto imagen, Long diarioId, Long usuarioId, String usuarioNombre) {
         this.id = id;
         this.texto = texto;
         this.imagen = imagen;
         this.diarioId = diarioId;
         this.usuarioId = usuarioId;
+        this.usuarioNombre = usuarioNombre;
     }
 
     public ComentarioDto(Comentario c) {
@@ -31,7 +34,10 @@ public class ComentarioDto implements Serializable {
         this.imagen = (c.getImagen() != null) ? new ImagenDto(c.getImagen()) : null;
         this.diarioId = c.getDiario().getId();
         this.usuarioId = c.getUsuario().getId();
+        this.usuarioNombre = c.getUsuario().getNombre();
     }
+public ComentarioDto(){}
+
 
     public Long getId() {
         return id;
@@ -51,6 +57,9 @@ public class ComentarioDto implements Serializable {
 
     public Long getUsuarioId() {
         return usuarioId;
+    }
+    public String getUsuarioNombre(){
+        return usuarioNombre;
     }
 
     @Override
@@ -88,6 +97,7 @@ public class ComentarioDto implements Serializable {
                 "texto = " + texto + ", " +
                 "imagen = " + imagen + ", " +
                 "diarioId = " + diarioId + ", " +
-                "usuarioId = " + usuarioId + ")";
+                "usuarioId = " + usuarioId + ", "+
+                "usuarioNombre = " + usuarioNombre +")";
     }
 }

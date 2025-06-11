@@ -3,12 +3,16 @@ import axios from "axios";
 import { useUsuario } from "../context/UsuarioContext";
 import { Diario } from "../types/Diario";
 import EditorDiario from "../components/EditorDiario";
+import DiarioCard from "../components/DiarioCard";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const { usuario } = useUsuario();
+  const { usuario, cerrarSesion } = useUsuario();
+  const navigate = useNavigate();
   const [diarios, setDiarios] = useState<Diario[]>([]);
   const [cargando, setCargando] = useState(true);
   const [diarioEnEdicion, setDiarioEnEdicion] = useState<Diario | undefined>();
+  const [mostrarModal, setMostrarModal] = useState(false);
 
   useEffect(() => {
     cargarDiarios();
@@ -36,93 +40,98 @@ export default function Home() {
     }
   };
 
-  return (
-    <div className="bg-gray-100 min-h-screen p-4 md:p-8">
-      <h1 className="text-center text-2xl font-bold text-gray-800 mb-6">
-        Bienvenido, {usuario?.nombre}
-      </h1>
+  const handleLogout = () => {
+    cerrarSesion();
+    navigate("/");
+  };
 
-      {/* Editor siempre visible */}
-      <div className="mb-8">
-        <EditorDiario
-          diario={diarioEnEdicion}
-          onSave={() => {
-            setDiarioEnEdicion(undefined);
-            cargarDiarios();
-          }}
-        />
+  const handleCrear = () => {
+    setDiarioEnEdicion(undefined);
+    setMostrarModal(true);
+  };
+
+  const handleEditar = (diario: Diario) => {
+    setDiarioEnEdicion(diario);
+    setMostrarModal(true);
+  };
+
+  const handleGuardar = () => {
+    setMostrarModal(false);
+    setDiarioEnEdicion(undefined);
+    cargarDiarios();
+  };
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      {/* NAVBAR */}
+      <nav className="bg-white shadow p-4 flex justify-between items-center">
+        <span className="text-lg font-bold text-gray-800">VEE</span>
+        <div className="flex items-center gap-4">
+          <Link to="/search" title="Buscar">🔍</Link>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+          >
+            Cerrar sesión
+          </button>
+        </div>
+      </nav>
+
+      <div className="p-4 md:p-8">
+        <h1 className="text-center text-2xl font-bold text-gray-800 mb-6">
+          Bienvenido, {usuario?.nombre}
+        </h1>
+
+        {/* EDITOR VISIBLE EN ESCRITORIO */}
+        <div className="hidden md:block mb-8">
+          <EditorDiario
+            diario={diarioEnEdicion}
+            onSave={handleGuardar}
+          />
+        </div>
+
+        {/* LISTA DE DIARIOS */}
+        {cargando ? (
+          <p className="text-center text-gray-600">Cargando diarios...</p>
+        ) : diarios.length === 0 ? (
+          <p className="text-center text-gray-600">No hay diarios aún. ¡Crea uno!</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {diarios.map((diario) => (
+              <DiarioCard
+                key={diario.id}
+                diario={diario}
+                onEdit={() => handleEditar(diario)}
+                onDelete={() => handleEliminarDiario(diario.id)}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Lista de diarios */}
-      {cargando ? (
-        <p className="text-center text-gray-600">Cargando diarios...</p>
-      ) : diarios.length === 0 ? (
-        <p className="text-center text-gray-600">No hay diarios aún. ¡Crea uno!</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {diarios.map((diario) => (
-            <div
-              key={diario.id}
-              className="bg-white rounded-xl shadow p-4 flex flex-col justify-between"
-            >
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-1">
-                  {diario.titulo}
-                </h2>
-                <div
-                  className="prose prose-sm max-w-none text-sm text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: diario.text }}
-                />
-                {diario.imagenes && diario.imagenes.length > 0 && (
-                  <div className="mt-3">
-                    {diario.imagenes.map((img) => (
-                      <img
-                        key={img.id}
-                        src={img.url}
-                        alt=""
-                        className="w-full max-h-64 object-cover rounded mt-2"
-                      />
-                    ))}
-                  </div>
-                )}
-                {diario.comentarios && diario.comentarios.length > 0 && (
-                  <div className="mt-4 text-sm text-gray-700">
-                    <p className="font-semibold mb-1">Comentarios:</p>
-                    {diario.comentarios.map((comentario) => (
-                      <div key={comentario.id} className="border-t pt-2 mt-2">
-                        <p className="text-gray-800">{comentario.texto}</p>
-                        {comentario.imagen && (
-                          <img
-                            src={comentario.imagen.url}
-                            alt=""
-                            className="w-full max-h-40 object-cover rounded mt-2"
-                          />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+      {/* BOTÓN FLOTANTE SOLO EN MÓVIL */}
+      <button
+        onClick={handleCrear}
+        className="md:hidden fixed bottom-6 right-6 bg-yellow-400 hover:bg-yellow-500 text-black text-3xl rounded-full w-14 h-14 flex items-center justify-center shadow-lg"
+        title="Crear nuevo diario"
+      >+
+      </button>
 
-              <div className="mt-4 flex justify-end gap-2">
-                {new Date(diario.fecha).toISOString().split("T")[0] ===
-                  new Date().toISOString().split("T")[0] && (
-                  <button
-                    onClick={() => setDiarioEnEdicion(diario)}
-                    className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded"
-                  >
-                    Editar
-                  </button>
-                )}
-                <button
-                  onClick={() => handleEliminarDiario(diario.id)}
-                  className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded"
-                >
-                  Eliminar
-                </button>
-              </div>
-            </div>
-          ))}
+      {/* MODAL PARA CREAR O EDITAR EN MÓVIL */}
+      {mostrarModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 md:hidden">
+          <div className="bg-white w-[95%] max-h-[90%] overflow-y-auto rounded-xl p-4">
+            <EditorDiario
+              diario={diarioEnEdicion}
+              onSave={handleGuardar}
+            />
+            <button
+              onClick={() => setMostrarModal(false)}
+              className="mt-4 w-full bg-gray-300 text-gray-800 font-semibold py-2 rounded hover:bg-gray-400"
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
       )}
     </div>

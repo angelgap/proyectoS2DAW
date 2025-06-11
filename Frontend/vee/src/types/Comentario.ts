@@ -6,4 +6,6 @@ export interface Comentario {
   usuarioId: number;
   diarioId: number;
   imagen?: Imagen | null;
+  usuarioNombre?: string; 
+  showCommentButton?: boolean;
 }
